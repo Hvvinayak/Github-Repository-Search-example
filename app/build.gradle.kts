@@ -30,6 +30,14 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        applicationVariants.all {
+            outputs
+                .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
+                .forEach { variant ->
+                    variant.outputFileName = "GithubRepositoryExample.apk"
+                }
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
